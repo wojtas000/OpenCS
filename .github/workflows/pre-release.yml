@@ -6,6 +6,15 @@ on:
       - main
 
 jobs:
+  
+  wget:
+    runs-on: ubuntu-latest
+    steps:
+    - name: wget
+      uses: wei/wget@v1
+      with:
+        args: -O sample.html https://httpbin.org/html
+  
   pre-release:
     name: "Pre-release"
     runs-on: "ubuntu-latest"
@@ -25,8 +34,6 @@ jobs:
       
       - name: "Install robot.jar"
         run: |
-          apt install sudo
-          sudo apt-get install wget
           wget https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
           pwd
         
