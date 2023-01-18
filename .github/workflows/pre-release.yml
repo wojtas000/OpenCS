@@ -14,14 +14,10 @@ jobs:
     steps:
     
       - name: "Java install"
-        run: |
-          apt install sudo
-          sudo apt-get -s upgrade | grep -P "\d\K upgraded"
-          sudo apt-get install openjdk-11-jdk
-        
-      - name: "Check if java present"
-        run: |
-          java --version
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
    
       - name: Checkout repository
         uses: actions/checkout@v2
