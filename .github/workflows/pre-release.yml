@@ -54,6 +54,9 @@ jobs:
              ls ;
              cd .. ;
              
+      - name: "Infer additional assertions"
+        run: |
+          bash infer_assertions.sh
              
       
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
