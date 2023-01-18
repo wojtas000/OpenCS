@@ -16,6 +16,7 @@ jobs:
       
       - name: "Test directories"
         run: 
+          echo $GITHUB_WORKSPACE
           cd schema
           pwd 
           ls
