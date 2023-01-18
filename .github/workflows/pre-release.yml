@@ -10,7 +10,7 @@ jobs:
     name: "Pre-release"
     runs-on: "ubuntu-latest"
     container: ghcr.io/opencs-ontology/ci-worker:main
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
 
       - name: "Package ontology"
         run: python /app/package.py opencs package dev
-
+      
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -27,7 +27,11 @@ jobs:
           prerelease: true
           title: "Development build"
           files: package/*
-
+      
+      - name: "Check if java present"
+        run: |
+          java --version
+      
       - name: "Prepare ontology files for commit"
         run: |
           mkdir output_files
