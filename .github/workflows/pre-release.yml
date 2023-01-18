@@ -15,7 +15,7 @@ jobs:
     
       - name: "Java install"
         run: |
-          apt install sudo
+          sudo apt-get -s upgrade | grep -P "\d\K upgraded"
           sudo apt-get install openjdk-11-jdk
         
       - name: "Check if java present"
