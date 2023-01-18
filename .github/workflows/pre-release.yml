@@ -16,7 +16,9 @@ jobs:
       
       - name: "Test directories"
         run: |
-          ls OpenCS/schema/
+          cd OpenCS/schema/
+          ls
+          cd ~
       
       - name: "Install robot.jar"
         uses: wei/wget@v1
