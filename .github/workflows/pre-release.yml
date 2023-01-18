@@ -46,7 +46,15 @@ jobs:
       
       - name: "Package ontology"
         run: pwd ;
-             ls
+             ls ;
+             cd opencs ;
+             ls ;
+             cd .. ;
+             cd package ;
+             ls ;
+             cd .. ;
+             
+             
       
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
