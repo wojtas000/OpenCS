@@ -13,7 +13,7 @@ jobs:
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
+        args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
   
   pre-release:
     name: "Pre-release"
