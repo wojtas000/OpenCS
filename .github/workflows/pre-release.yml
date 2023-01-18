@@ -15,6 +15,7 @@ jobs:
     
       - name: "Java install"
         run: |
+          apt install sudo
           sudo apt-get install openjdk-11-jdk
         
       - name: "Check if java present"
