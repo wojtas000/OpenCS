@@ -16,7 +16,7 @@ jobs:
       
       - name: "Test directories"
         run: |
-          cd OpenCS/schema/
+          cd /github/workspace/OpenCS/schema/
           ls
           cd ~
       
