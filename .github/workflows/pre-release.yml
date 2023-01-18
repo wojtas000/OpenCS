@@ -12,6 +12,14 @@ jobs:
     container: ghcr.io/opencs-ontology/ci-worker:main
     
     steps:
+      - name: "Check if java present"
+        run: |
+          java --version
+     
+      - name: "Check if java present"
+        run: |
+         echo  java --version
+    
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -27,10 +35,6 @@ jobs:
           prerelease: true
           title: "Development build"
           files: package/*
-      
-      - name: "Check if java present"
-        run: |
-          java --version
       
       - name: "Prepare ontology files for commit"
         run: |
