@@ -18,7 +18,11 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
-   
+      
+      - name: "Check if Java present"
+        run: |
+          java --version
+        
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
