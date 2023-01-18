@@ -43,20 +43,12 @@ jobs:
 
       - name: "Package ontology"
         run: python /app/package.py opencs package dev;
-      
-      - name: "Package ontology"
-        run: pwd ;
-             ls ;
-             cd opencs ;
-             ls ;
-             cd .. ;
-             cd package ;
-             ls ;
-             cd .. ;
-             
-      - name: "Infer additional assertions"
-        run: |
-          bash opencs/infer_assertions.sh
+
+#       This step infers additional assertions. 
+
+#       - name: "Infer additional assertions"
+#         run: |
+#           bash opencs/infer_assertions.sh
              
       
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
