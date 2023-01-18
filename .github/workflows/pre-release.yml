@@ -42,7 +42,11 @@ jobs:
           path: opencs
 
       - name: "Package ontology"
-        run: python /app/package.py opencs package dev
+        run: python /app/package.py opencs package dev;
+      
+      - name: "Package ontology"
+        run: pwd ;
+             ls
       
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
