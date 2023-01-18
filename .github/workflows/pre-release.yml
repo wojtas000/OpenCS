@@ -16,10 +16,10 @@ jobs:
       
       - name: "Test directories"
         run: 
-          echo $GITHUB_WORKSPACE
-          cd schema
-          pwd 
-          ls
+          echo $GITHUB_WORKSPACE;
+          cd schema;
+          pwd ;
+          ls;
           cd ~
       
       - name: "Install robot.jar"
