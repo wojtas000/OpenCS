@@ -13,7 +13,7 @@ jobs:
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O sample.html https://httpbin.org/html
+        args: -O https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
   
   pre-release:
     name: "Pre-release"
@@ -34,7 +34,7 @@ jobs:
       
       - name: "Install robot.jar"
         run: |
-          wget https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
+          # wget https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
           pwd
         
       - name: "Example of robot use"
