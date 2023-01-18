@@ -11,6 +11,6 @@ java -jar robot.jar remove --input output_opencs.ttl --select "annotation-proper
 
 java -jar robot.jar reason --reasoner HermiT --axiom-generators "PropertyAssertion" --input output_opencs.ttl --output output_opencs.ttl;
 
-output_opencs.ttl > output_files/inferred_opencs.ttl
+mv output_opencs.ttl output_files/inferred_opencs.ttl
 
 # java -jar robot.jar diff --left output_opencs5.ttl --right output_opencs.ttl | grep '\+' | awk '{print substr($0, 3)}' > inferred_assertions.ttl;
