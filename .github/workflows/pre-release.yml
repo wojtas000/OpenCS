@@ -15,11 +15,11 @@ jobs:
     steps:
       
       - name: "Test directories"
-        run: |
-          pwd
+        run: 
+          cd schema
+          pwd 
           ls
-          # cd /github/workspace/OpenCS/schema/
-          # cd ~
+          cd ~
       
       - name: "Install robot.jar"
         uses: wei/wget@v1
