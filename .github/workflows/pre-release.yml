@@ -56,7 +56,7 @@ jobs:
              
       - name: "Infer additional assertions"
         run: |
-          bash infer_assertions.sh
+          bash opencs/infer_assertions.sh
              
       
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
