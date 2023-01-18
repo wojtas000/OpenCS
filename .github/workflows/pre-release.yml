@@ -25,6 +25,7 @@ jobs:
       
       - name: "Install robot.jar"
         run: |
+          apt install sudo
           sudo apt-get install wget
           wget https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
           pwd
