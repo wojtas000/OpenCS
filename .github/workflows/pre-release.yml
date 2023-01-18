@@ -7,19 +7,6 @@ on:
 
 jobs:
   
-#   wget:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: wget
-#       uses: wei/wget@v1
-#       with:
-#         args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
-  
-#     - name: "ls + pwd"
-#       run: |
-#         pwd
-#         ls
-  
   pre-release:
     name: "Pre-release"
     runs-on: "ubuntu-latest"
@@ -27,31 +14,17 @@ jobs:
     
     steps:
       
-      - name: wget
+      - name: "Install robot.jar"
         uses: wei/wget@v1
         with:
           args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
-      
-      - name: "ls + pwd"
-        run: |
-          pwd
-          ls
       
       - name: "Java install"
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
-      
-      - name: "Check if Java present"
-        run: |
-          java --version
-      
-      - name: "Install robot.jar"
-        run: |
-          # wget https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
-          pwd
-        
+          
       - name: "Example of robot use"
         run: |
           java -jar /__w/OpenCS/OpenCS/robot.jar --help
