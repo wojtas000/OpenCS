@@ -15,6 +15,11 @@ jobs:
       with:
         args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
   
+    - name: "ls + pwd"
+      run: |
+        pwd
+        ls
+  
   pre-release:
     name: "Pre-release"
     runs-on: "ubuntu-latest"
