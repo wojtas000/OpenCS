@@ -12,14 +12,15 @@ jobs:
     container: ghcr.io/opencs-ontology/ci-worker:main
     
     steps:
+    
+      - name: "Java install"
+        run: |
+          sudo apt-get install openjdk-11-jdk
+        
       - name: "Check if java present"
         run: |
           java --version
-     
-      - name: "Check if java present"
-        run: |
-         echo  java --version
-    
+   
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
