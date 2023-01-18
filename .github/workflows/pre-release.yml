@@ -25,7 +25,7 @@ jobs:
       
       - name: "Install robot.jar"
         run: |
-          wget https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
+          curl https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
           pwd
         
       - name: "Example of robot use"
