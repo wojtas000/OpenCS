@@ -7,18 +7,18 @@ on:
 
 jobs:
   
-  wget:
-    runs-on: ubuntu-latest
-    steps:
-    - name: wget
-      uses: wei/wget@v1
-      with:
-        args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
+#   wget:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: wget
+#       uses: wei/wget@v1
+#       with:
+#         args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
   
-    - name: "ls + pwd"
-      run: |
-        pwd
-        ls
+#     - name: "ls + pwd"
+#       run: |
+#         pwd
+#         ls
   
   pre-release:
     name: "Pre-release"
@@ -26,7 +26,17 @@ jobs:
     container: ghcr.io/opencs-ontology/ci-worker:main
     
     steps:
-    
+      
+      - name: wget
+        uses: wei/wget@v1
+        with:
+          args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
+      
+      - name: "ls + pwd"
+        run: |
+          pwd
+          ls
+      
       - name: "Java install"
         uses: actions/setup-java@v3
         with:
