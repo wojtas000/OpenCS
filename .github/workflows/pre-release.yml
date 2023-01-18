@@ -44,7 +44,7 @@ jobs:
         
       - name: "Example of robot use"
         run: |
-          java -jar ./robot.jar --help
+          java -jar /home/runner/work/OpenCS/OpenCS/robot.jar --help
       
       - name: Checkout repository
         uses: actions/checkout@v2
