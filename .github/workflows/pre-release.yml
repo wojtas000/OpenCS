@@ -66,10 +66,11 @@ jobs:
       
       - name: "check if inference is done"
         run: |
+          pwd;
           cd output_files;
           ls;
           head -n100 inferred_opencs.ttl;
-          heaad -n100 inferred_assertions.ofn;
+          head -n100 inferred_assertions.ofn;
              
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
