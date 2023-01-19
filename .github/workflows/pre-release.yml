@@ -39,10 +39,25 @@ jobs:
 
       - name: "Package ontology"
         run: python /app/package.py opencs package dev;
-
+      
+      - name: "Check directories"
+        run: |
+          echo "Home"
+          echo $HOME
+          pwd;
+          ls;
+          echo "Package";
+          cd package;
+          ls ;
+          cd;
+          echo "OpenCS";
+          cd opencs;
+          ls ;
+          cd;
+          
       - name: "Infer additional assertions"
         run: |
-          bash opencs/infer_assertions.sh > /dev/null 2>&1
+          bash opencs/infer_assertions.sh 1 > /dev/null
       
       - name: "check if inference is done"
         run: |
