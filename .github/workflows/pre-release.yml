@@ -61,9 +61,9 @@ jobs:
           pwd;
           bash opencs/inference/infer_assertions.sh;
           mkdir output_files; 
-          rm opencs/inference/output_opencs.ttl opencs/inference/opencs2.ttl;
-          mv opencs/inference/output_opencs2.ttl output_files/inferred_opencs.ttl;
-          mv opencs/inference/inferred_assertions.ofn output_files/inferred_assertions.ofn;
+          rm output_opencs.ttl opencs2.ttl;
+          mv output_opencs2.ttl output_files/inferred_opencs.ttl;
+          mv inferred_assertions.ofn output_files/inferred_assertions.ofn;
       
       - name: "check if inference is done"
         run: |
