@@ -35,10 +35,10 @@ jobs:
           
       - name: "Infer additional assertions"
         run: |
-          bash opencs/inference/infer_assertions.sh ;
-          touch inferred_assertions.ttl ;
-          bash opencs/inference/ofn_to_ttl.sh inferred_assertions.ofn inferred_assertions.ttl ;
-          rm output_opencs.ttl opencs2.ttl;
+          bash opencs/inference/infer_assertions.sh
+          touch inferred_assertions.ttl
+          bash opencs/inference/ofn_to_ttl.sh inferred_assertions.ofn inferred_assertions.ttl
+          rm output_opencs.ttl opencs2.ttl
              
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
@@ -54,7 +54,7 @@ jobs:
           gzip -cd package/opencs.ttl.gz > output_files/opencs.ttl
           gzip -cd package/opencs.rdf.gz > output_files/opencs.rdf
           gzip -cd package/opencs.nt.gz > output_files/opencs.nt
-          mv inferred_assertions.ttl output_files/inferred_assertions.ttl;
+          mv inferred_assertions.ttl output_files/inferred_assertions.ttl
 
       - name: "Push the files to the Github Pages repository"
         uses: "cpina/github-action-push-to-another-repository@main"
