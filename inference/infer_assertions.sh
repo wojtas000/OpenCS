@@ -18,7 +18,7 @@
 # # java -jar robot.jar diff --left output_opencs5.ttl --right output_opencs.ttl | grep '\+' | awk '{print substr($0, 3)}' > inferred_assertions.ttl;
 
 pwd;
-gzip -cd package/opencs.ttl.gz ./opencs.ttl;
+gzip -cd `${{ github.repository }}`/package/opencs.ttl.gz ./opencs.ttl;
 cp ./opencs.ttl ./opencs2.ttl;
 echo "copied opencs"
 
