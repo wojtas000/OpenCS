@@ -58,6 +58,7 @@ jobs:
           
       - name: "Infer additional assertions"
         run: |
+          pwd;
           bash opencs/inference/infer_assertions.sh 1 > /dev/null;
           mkdir output_files; 
           rm opencs/inference/output_opencs.ttl opencs/inference/opencs2.ttl;
