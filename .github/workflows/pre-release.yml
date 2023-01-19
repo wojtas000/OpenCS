@@ -24,7 +24,7 @@ jobs:
       - name: "Download robot.jar"
         uses: wei/wget@v1
         with:
-          args: -O inference/robot.jar https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
+          args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
       
       - name: "Java install"
         uses: actions/setup-java@v3
