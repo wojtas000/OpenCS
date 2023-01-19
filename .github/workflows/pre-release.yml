@@ -49,12 +49,13 @@ jobs:
           echo "Package";
           cd package;
           ls ;
+          gzip -d opencs.ttl.gz | head -n50
           cd ..;
           echo "OpenCS";
           cd opencs;
           ls ;
-          cd ;
-          pwd
+          
+          
           
       - name: "Infer additional assertions"
         run: |
