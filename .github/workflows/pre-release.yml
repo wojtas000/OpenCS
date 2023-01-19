@@ -21,7 +21,7 @@ jobs:
           pwd ;
           ls
       
-      - name: "Install robot.jar"
+      - name: "Download robot.jar"
         uses: wei/wget@v1
         with:
           args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
@@ -31,10 +31,6 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
-          
-      - name: "Example of robot use"
-        run: |
-          java -jar /__w/OpenCS/OpenCS/robot.jar --help
       
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -46,7 +42,14 @@ jobs:
 
       - name: "Infer additional assertions"
         run: |
-          bash opencs/infer_assertions.sh
+          bash opencs/infer_assertions.sh > /dev/null 2>&1
+      
+      - name: "check if inference is done"
+        run: |
+          cd output_files;
+          ls;
+          head -n100 inferred_opencs.ttl;
+          heaad -n100 inferred_assertions.ofn;
              
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
