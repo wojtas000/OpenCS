@@ -70,7 +70,7 @@ jobs:
           pwd;
           cd output_files;
           ls;
-          head -n100 inferred_opencs.ttl;
+          head -n1000 inferred_opencs.ttl;
           head -n100 inferred_assertions.ofn;
              
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
@@ -83,7 +83,6 @@ jobs:
       
       - name: "Prepare ontology files for commit"
         run: |
-          mkdir output_files
           gzip -cd package/opencs.ttl.gz > output_files/opencs.ttl
           gzip -cd package/opencs.rdf.gz > output_files/opencs.rdf
           gzip -cd package/opencs.nt.gz > output_files/opencs.nt
