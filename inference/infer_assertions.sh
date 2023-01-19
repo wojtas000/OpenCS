@@ -20,7 +20,7 @@
 pwd;
 cd ..;
 pwd;
-cp `${{ github.repository }}`/package/opencs.ttl ./opencs2.ttl;
+cp package/opencs.ttl ./opencs2.ttl;
 echo "copied opencs"
 
 sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\/0.1.0>/a\    owl:imports <http://www.w3.org/2004/02/skos/core#> ;' ./opencs2.ttl
