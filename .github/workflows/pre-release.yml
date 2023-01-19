@@ -58,6 +58,7 @@ jobs:
           
       - name: "Infer additional assertions"
         run: |
+          mv robot.jar inference/robot.jar;
           bash opencs/infer_assertions.sh 1 > /dev/null
       
       - name: "check if inference is done"
