@@ -49,11 +49,12 @@ jobs:
           echo "Package";
           cd package;
           ls ;
-          cd;
+          cd ..;
           echo "OpenCS";
           cd opencs;
           ls ;
-          cd;
+          cd ;
+          pwd
           
       - name: "Infer additional assertions"
         run: |
