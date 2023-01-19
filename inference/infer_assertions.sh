@@ -2,7 +2,7 @@
 
 cp package/opencs.ttl.gz opencs2.ttl.gz;
 gzip -d opencs2.ttl.gz ;
-echo "extracted opencs";
+echo "extracted opencs ontology";
 
 sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\/0.1.0>/a\    owl:imports <http://www.w3.org/2004/02/skos/core#> ;' opencs2.ttl ;
 sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\//d' opencs2.ttl;
