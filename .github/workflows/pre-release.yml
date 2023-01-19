@@ -49,8 +49,6 @@ jobs:
           echo "Package";
           cd package;
           ls ;
-          gzip -d opencs.ttl.gz  opencs_copy.ttl ;
-          head -n50 opencs_copy.ttl ;
           cd ..;
           echo "OpenCS";
           cd opencs;
