@@ -14,24 +14,6 @@ jobs:
     
     steps:
       
-      - name: "Test directories"
-        run: 
-          echo $GITHUB_WORKSPACE;
-          cd ..;
-          pwd ;
-          ls
-      
-      - name: "Download robot.jar"
-        uses: wei/wget@v1
-        with:
-          args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
-      
-      - name: "Java install"
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '17'
-      
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -39,39 +21,32 @@ jobs:
 
       - name: "Package ontology"
         run: python /app/package.py opencs package dev;
-      
-      - name: "Check directories"
-        run: |
-          echo "Home"
-          echo $HOME
-          pwd;
-          ls;
-          echo "Package";
-          cd package;
-          ls ;
-          cd ..;
-          echo "OpenCS";
-          cd opencs;
-          ls ;
           
-          
+      - name: "Download robot.jar"
+      - uses: wei/wget@v1
+        with:
+          args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
+        
+      - name: "Java installation"
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'   
           
       - name: "Infer additional assertions"
         run: |
-          pwd;
           bash opencs/inference/infer_assertions.sh ;
+          bash opencs/inference/ofn_to_ttl.sh inferred_assertions.ofn inferred_assertions.ttl ;
           mkdir output_files; 
           rm output_opencs.ttl opencs2.ttl;
-          mv output_opencs2.ttl output_files/inferred_opencs.ttl;
-          mv inferred_assertions.ofn output_files/inferred_assertions.ofn;
-      
+          mv inferred_assertions.ttl output_files/inferred_assertions.ttl;
+          
       - name: "check if inference is done"
         run: |
           pwd;
           cd output_files;
           ls;
-          head -n1000 inferred_opencs.ttl;
-          head -n100 inferred_assertions.ofn;
+          head -n100 inferred_assertions.ttl;
              
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
