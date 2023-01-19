@@ -58,12 +58,11 @@ jobs:
           
       - name: "Infer additional assertions"
         run: |
-          mv robot.jar inference/robot.jar;
-          bash inference/infer_assertions.sh 1 > /dev/null
+          bash opencs/inference/infer_assertions.sh 1 > /dev/null;
           mkdir output_files; 
-          rm inference/output_opencs.ttl inference/opencs2.ttl;
-          mv inference/output_opencs2.ttl /__w/OpenCS/OpenCS/output_files/inferred_opencs.ttl;
-          mv inference/inferred_assertions.ofn `$HOME`/output_files/inferred_assertions.ofn;
+          rm opencs/inference/output_opencs.ttl opencs/inference/opencs2.ttl;
+          mv opencs/inference/output_opencs2.ttl output_files/inferred_opencs.ttl;
+          mv opencs/inference/inferred_assertions.ofn output_files/inferred_assertions.ofn;
       
       - name: "check if inference is done"
         run: |
