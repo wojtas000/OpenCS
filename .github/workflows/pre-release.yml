@@ -36,6 +36,7 @@ jobs:
       - name: "Infer additional assertions"
         run: |
           bash opencs/inference/infer_assertions.sh ;
+          touch inferred_assertions.ttl ;
           bash opencs/inference/ofn_to_ttl.sh inferred_assertions.ofn inferred_assertions.ttl ;
           mkdir output_files; 
           rm output_opencs.ttl opencs2.ttl;
