@@ -1,6 +1,6 @@
 #!/usr/bin bash
 
-# gzip -cd `$HOME`/package/opencs.ttl.gz opencs.ttl
+# gzip -xd `$HOME`/package/opencs.ttl.gz opencs.ttl
 # cp opencs.ttl opencs2.ttl
 
 # sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\//d' opencs2.ttl;
@@ -18,7 +18,7 @@
 # # java -jar robot.jar diff --left output_opencs5.ttl --right output_opencs.ttl | grep '\+' | awk '{print substr($0, 3)}' > inferred_assertions.ttl;
 
 pwd;
-gunzip -cd package/opencs.ttl.gz ./opencs2.ttl
+gunzip -xd package/opencs.ttl.gz ./opencs2.ttl
 echo "extracted opencs"
 
 sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\/0.1.0>/a\    owl:imports <http://www.w3.org/2004/02/skos/core#> ;' ./opencs2.ttl
@@ -30,8 +30,8 @@ echo "merged with schema";
 
 java -jar robot.jar remove --input ./output_opencs.ttl --axioms tbox --output ./output_opencs.ttl;
 java -jar robot.jar remove --input ./output_opencs.ttl --select "annotation-properties data-properties anonymous" --output ./output_opencs.ttl;
-java -jar robot.jar remove --input openCS_dir/output_opencs.ttl --select "<http://dbpedia.org/resource/*>" --output openCS_dir/output_opencs.ttl;
-java -jar robot.jar unmerge --input ./output_opencs.ttl --input openCS/skos_patch.ttl --output ./output_opencs.ttl;
+java -jar robot.jar remove --input ./output_opencs.ttl --select "<http://dbpedia.org/resource/*>" --output ./output_opencs.ttl;
+java -jar robot.jar unmerge --input ./output_opencs.ttl --input opencs/inference/skos_patch.ttl --output ./output_opencs.ttl;
 echo "removed unneccesary axioms ";
 
 java -jar robot.jar reason --reasoner HermiT --axiom-generators "PropertyAssertion" --input ./output_opencs.ttl --output ./output_opencs2.ttl;
