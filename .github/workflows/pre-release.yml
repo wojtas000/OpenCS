@@ -23,7 +23,7 @@ jobs:
         run: python /app/package.py opencs package dev;
           
       - name: "Download robot.jar"
-      - uses: wei/wget@v1
+        uses: wei/wget@v1
         with:
           args: https://github.com/ontodev/robot/releases/download/v1.9.1/robot.jar
         
