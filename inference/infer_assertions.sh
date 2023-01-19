@@ -17,8 +17,8 @@
 
 # # java -jar robot.jar diff --left output_opencs5.ttl --right output_opencs.ttl | grep '\+' | awk '{print substr($0, 3)}' > inferred_assertions.ttl;
 
-
-gzip -cd __w/OpenCS/OpenCS/package/opencs.ttl.gz ./opencs.ttl
+pwd;
+gzip -cd package/opencs.ttl.gz ./opencs.ttl;
 cp ./opencs.ttl ./opencs2.ttl;
 echo "copied opencs"
 
@@ -26,7 +26,7 @@ sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\/0.1.0>/a\    owl:imports 
 sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\//d' ./opencs2.ttl;
 echo "deleted schema import, added skos import";
 
-java -jar robot.jar merge --input __w/OpenCS/OpenCS/opencs_schema.ttl --input ./opencs2.ttl --output ./output_opencs.ttl;
+java -jar robot.jar merge --input package/opencs_schema.ttl --input ./opencs2.ttl --output ./output_opencs.ttl;
 echo "merged with schema";
 
 java -jar robot.jar remove --input ./output_opencs.ttl --axioms tbox --output ./output_opencs.ttl;
