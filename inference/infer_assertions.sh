@@ -29,7 +29,7 @@ sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\//d' opencs2.ttl;
 head -n50 opencs2.ttl;
 echo "deleted schema import, added skos import";
 
-java -jar robot.jar merge --input package/opencs_schema.ttl --input opencs2.ttl --output output_opencs.ttl;
+java -jar robot.jar merge --input opencs/schema/schema.ttl --input opencs2.ttl --output output_opencs.ttl;
 echo "merged with schema";
 
 java -jar robot.jar remove --input output_opencs.ttl --axioms tbox --output output_opencs.ttl;
