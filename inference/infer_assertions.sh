@@ -18,8 +18,8 @@
 # # java -jar robot.jar diff --left output_opencs5.ttl --right output_opencs.ttl | grep '\+' | awk '{print substr($0, 3)}' > inferred_assertions.ttl;
 
 pwd;
-cp package/opencs.ttl ./opencs2.ttl;
-echo "copied opencs"
+# gunzip -cd package/opencs.ttl.gz ./opencs2.ttl
+echo "extracted opencs"
 
 sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\/0.1.0>/a\    owl:imports <http://www.w3.org/2004/02/skos/core#> ;' ./opencs2.ttl
 sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\//d' ./opencs2.ttl;
