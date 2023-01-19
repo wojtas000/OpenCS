@@ -1,6 +1,6 @@
 #!/usr/bin bash
 
-# gzip -xd `$HOME`/package/opencs.ttl.gz opencs.ttl
+# gzip -d `$HOME`/package/opencs.ttl.gz opencs.ttl
 # cp opencs.ttl opencs2.ttl
 
 # sed -i '/owl:imports <https:\/\/w3id.org\/ocs\/schema\//d' opencs2.ttl;
@@ -18,7 +18,7 @@
 # # java -jar robot.jar diff --left output_opencs5.ttl --right output_opencs.ttl | grep '\+' | awk '{print substr($0, 3)}' > inferred_assertions.ttl;
 
 pwd;
-gunzip -xd package/opencs.ttl.gz opencs2.ttl;
+gzip -d package/opencs.ttl.gz opencs2.ttl;
 head -n50 opencs2.ttl;
 echo "extracted opencs";
 
