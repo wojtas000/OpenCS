@@ -21,5 +21,5 @@ java -jar robot.jar reason --reasoner HermiT --axiom-generators "PropertyAsserti
 echo "reasoned";
 
 java -jar robot.jar diff --left output_opencs.ttl --right output_opencs2.ttl | grep '\+' | awk '{print substr($0, 3)}' > inferred_assertions.ofn;
-echo "inferred assertions";
+echo "inferred assertions"
 
