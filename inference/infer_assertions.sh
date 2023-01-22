@@ -1,5 +1,3 @@
-#!/usr/bin bash
-
 cp package/opencs.ttl.gz opencs2.ttl.gz;
 gzip -d opencs2.ttl.gz ;
 echo "extracted opencs ontology";
